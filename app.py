@@ -13,9 +13,6 @@ def get_prediction(person):
     return f"Человек выжил с вероятностью {y_pred}"
 
 
-#@app.route('/')
-#def index():
-    #return "main222"
 @app.route('/', methods = ['POST', 'GET'])
 
 @app.route('/predict/', methods=['post', 'get'])
@@ -30,7 +27,7 @@ def processing():
 
         message = get_prediction(person)
 
-    return render_template('login.html', message=message)
+    return render_template('main.html', message=message)
 
 
 if __name__ == '__main__':

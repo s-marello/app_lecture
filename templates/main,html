@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<style>
+form {
+    margin: left;
+    width: 33%
+}
+.result {
+    margin: auto;
+    width: 50%;
+    border: 1px solid #ccc;
+}
+</style>
+
+<head>
+    <title></title>
+</head>
+<br/><br/>
+<font size="4">  
+    Прогнозирование конечных свойств новых материалов 
+</font>
+<br/><br/>
+<form action="{{url_form(''main)}}" method = "POST">
+
+
+    <fieldset>
+        <legend>Введите значение</legend>
+        <br/><br/>
+        Соотношение матрица-наполнитель
+        <input name = "smn" type = "float"
+        required>
+        <br/><br/>
+        Плотность, кг/м3
+        <input name = "pl" type = "float"
+        required>
+        <br/><br/>
+        Модуль упругости, ГПа
+        <input name = "mu" type = "float"
+        required>
+        <br/><br/>
+        Количество отвердителя, м.%
+        <input name = "ko" type = "float"
+        required>
+        <br/><br/>
+        Содержание эпоксидных групп,%_2
+        <input name = "seg" type = "float"
+        required>
+        <br/><br/>
+        Температура вспышки, С_2
+        <input name = "tv" type = "float"
+        required>
+        <br/><br/>
+        Поверхностная плотность, г/м2
+        <input name = "pp" type = "float"
+        required>
+        <br/><br/>
+        Потребление смолы, г/м2
+        <input name = "ps" type = "float"
+        required>
+        <br/><br/>
+        Угол нашивки, град
+        <input name = "un" type = "float"
+        required>
+        <br/><br/>
+        Шаг нашивки          
+        <input name = "shn" type = "float"
+        required>
+        <br/><br/>
+        Плотность нашивки
+        <input name = "pn" type = "float"
+        required>
+        <br/><br/>
+        <br>
+        <br>
+        <input type = "submit">
+    </fieldset>
+
+</form> 

@@ -13,10 +13,10 @@ def get_prediction(person):
     return f"Человек выжил с вероятностью {y_pred}"
 
 
-@app.route('/')
-def index():
-    return "main222"
-
+#@app.route('/')
+#def index():
+    #return "main222"
+@app.route('/', methods = ['POST', 'GET'])
 
 @app.route('/predict/', methods=['post', 'get'])
 def processing():

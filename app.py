@@ -27,7 +27,7 @@ def processing():
 
         message = get_prediction(person)
 
-    return render_template('main.html', message=message)
+    return render_template('login.html', message=message)
 
 
 if __name__ == '__main__':

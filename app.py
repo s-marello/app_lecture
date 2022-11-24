@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 def get_prediction(person):
-    model = tf.keras.models.load_model(r"models\titanic_mlp")
+    model = tf.keras.models.load_model(r"models")
     y_pred = model.predict(person)
 
     return f"Человек выжил с вероятностью {y_pred}"

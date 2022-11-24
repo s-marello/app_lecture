@@ -15,7 +15,7 @@ def get_prediction(person):
 
 @app.route('/')
 def index():
-    return "main"
+    return "main222"
 
 
 @app.route('/predict/', methods=['post', 'get'])

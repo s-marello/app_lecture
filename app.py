@@ -19,7 +19,7 @@ def processing():
     message = ''
     if request.method == 'POST':  
         message = get_prediction(np.array([[request.form.get('smn'), 
-                                            request.form.get('pl')
+                                            request.form.get('pl'),
                                             request.form.get('mu'),
                                             request.form.get('ko'),
                                             request.form.get('seg'),

@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('login.html')
+    return render_template('main.html')
 
 def get_prediction(user_input):
     model = tf.keras.models.load_model('/model') 
@@ -15,8 +15,8 @@ def get_prediction(user_input):
     
     return f"Ответ: {user_result}"
 
-@app.route('/predict/', methods=['POST', 'GET'])
-def processing():
+@app.route('/predict', methods=['POST', 'GET'])
+def predict():
     message = ''
     if request.method == 'POST':  
         message = get_prediction(np.array([[request.form.get('smn'), 
@@ -30,7 +30,7 @@ def processing():
                                             request.form.get('un'),
                                             request.form.get('shn'),
                                             request.form.get('pn')]]))
-    return render_template('login.html', message=message)
+    return render_template('main.html', message=message)
 
 
 if __name__ == '__main__':

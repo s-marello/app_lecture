@@ -7,8 +7,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    if request.method == 'GET':
-        return render_template('main.html')
+    return render_template('main.html')
 
 def get_prediction(user_input):
     model = tf.keras.models.load_model('/model') 

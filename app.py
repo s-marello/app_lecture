@@ -9,7 +9,7 @@ def choose_prediction_method():
     return render_template('main.html')
 
 def get_prediction(user_input):
-    model = tf.keras.models.load_model('/model') 
+    model = tf.keras.models.load_model('model') 
     user_result = model.predict(user_input)
     return f"Ответ: {user_result}"
 

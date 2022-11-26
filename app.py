@@ -10,6 +10,10 @@ def get_prediction(user_input):
     
     return f"Ответ {user_result}"
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/predict/', methods=['post', 'get'])
 def processing():
     message = ''

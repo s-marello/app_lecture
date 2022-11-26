@@ -2,13 +2,11 @@ from flask import Flask, request, render_template
 import numpy as np
 import tensorflow as tf
 
-
 app = Flask(__name__)
 
-
-def get_prediction(smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn):
+def get_prediction(user_input):
     model = tf.keras.models.load_model(r"model") 
-    user_result = model.predict(np.array([[smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]]))
+    user_result = model.predict(user_input)
     
     return f"Ответ {user_result}"
 
@@ -31,8 +29,8 @@ def processing():
         shn = request.form.get('shn')
         pn = request.form.get('pn')
         
-
-        message = get_prediction(smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn)
+        sum_model = np.array([[smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]])
+        message = get_prediction(sum_model)
 
     return render_template('login.html', message=message)
 

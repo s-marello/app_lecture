@@ -10,7 +10,7 @@ def index():
     return render_template('login.html')
 
 def get_prediction(user_input):
-    model = tf.keras.models.load_model(r"model") 
+    model = tf.keras.models.load_model("model") 
     user_result = model.predict(user_input)
     
     return f"Ответ {user_result}"

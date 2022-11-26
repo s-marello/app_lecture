@@ -10,8 +10,9 @@ def get_prediction(user_input):
     
     return f"Ответ {user_result}"
 
-
-@app.route('/', methods = ['POST', 'GET'])
+@app.route('/')
+def index():
+    return "main"
 
 @app.route('/predict/', methods=['post', 'get'])
 def processing():

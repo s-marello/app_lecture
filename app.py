@@ -5,9 +5,10 @@ import tensorflow as tf
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('main.html')
+    if request.method == 'GET':
+        return render_template('main.html')
 
 def get_prediction(user_input):
     model = tf.keras.models.load_model('/model') 
@@ -30,7 +31,7 @@ def prediction():
                                             request.form.get('un'),
                                             request.form.get('shn'),
                                             request.form.get('pn')]]))
-    return render_template('main.html', message=message)
+        return render_template('main.html', message=message)
 
 
 if __name__ == '__main__':

@@ -5,7 +5,7 @@ import tensorflow as tf
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/')
 def index():
     return render_template('main.html')
 

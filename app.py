@@ -10,7 +10,7 @@ def get_prediction(user_input):
     
     return f"Ответ {user_result}"
 
-@app.route('/')
+@app.route('/', methods = ['POST', 'GET'])
 def index():
     return render_template('index.html')
 

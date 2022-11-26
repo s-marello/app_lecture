@@ -56,6 +56,13 @@ div {
 	    <input type="submit">
 	</p>
     </form>
+
+    <p>
+    {% if message %}
+        <p><b>{{message}}</b></p>
+    {% endif %}
+    </p>
+
 </div>
 </body>
 </html>

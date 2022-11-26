@@ -13,7 +13,6 @@ def index():
 def get_prediction(user_input):
     model = tf.keras.models.load_model('/model') 
     user_result = model.predict(user_input)
-    
     return f"Ответ: {user_result}"
 
 @app.route('/prediction', methods=['POST', 'GET'])
@@ -31,7 +30,7 @@ def prediction():
                                             request.form.get('un'),
                                             request.form.get('shn'),
                                             request.form.get('pn')]]))
-        return render_template('main.html', message=message)
+    return render_template('main.html', message=message)
 
 
 if __name__ == '__main__':

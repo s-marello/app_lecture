@@ -4,9 +4,8 @@ import tensorflow as tf
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def index():
+def choose_prediction_method():
     return render_template('main.html')
 
 def get_prediction(user_input):

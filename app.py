@@ -15,8 +15,8 @@ def get_prediction(user_input):
     
     return f"Ответ: {user_result}"
 
-@app.route('/predict', methods=['POST', 'GET'])
-def predict():
+@app.route('/prediction', methods=['POST', 'GET'])
+def prediction():
     message = ''
     if request.method == 'POST':  
         message = get_prediction(np.array([[request.form.get('smn'), 

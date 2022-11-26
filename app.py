@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 
 @app.route('/')
-#def index():
-    #return render_template('login.html')
+def index():
+    return render_template('login.html')
 
 def get_prediction(user_input):
     model = tf.keras.models.load_model('/model') 

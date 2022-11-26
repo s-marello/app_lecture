@@ -10,6 +10,9 @@ div {
     <title>Login</title>
 </head>
 <body>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
     <br/><br/>
     <font size="4">  
     Прогнозирование конечных свойств новых материалов 
@@ -53,10 +56,6 @@ div {
 	    <input type="submit">
 	</p>
     </form>
-
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
 
 </body>
 </html>

@@ -4,15 +4,16 @@ import tensorflow as tf
 
 app = Flask(__name__)
 
+
+@app.route('/', methods = ['POST', 'GET'])
+def index():
+    return render_template('login.html')
+
 def get_prediction(user_input):
     model = tf.keras.models.load_model(r"model") 
     user_result = model.predict(user_input)
     
     return f"Ответ {user_result}"
-
-@app.route('/', methods = ['POST', 'GET'])
-#def index():
-    #return render_template('login.html')
 
 @app.route('/predict/', methods=['post', 'get'])
 def processing():

@@ -53,15 +53,10 @@ div {
 	    <input type="submit">
 	</p>
     </form>
-<div class = "message", align = "left">
+
     {% if message %}
-    	<br>
-    	<p_style = "font_size: 50px">
-    	Параметры материала
-    	</p>
-    	<p_style> = "font_size: 50px" {{message}}
-    	</p>
+        <p>{{ message }}</p>
     {% endif %}
-<div/>
+
 </body>
 </html>

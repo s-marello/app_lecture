@@ -15,7 +15,7 @@ def get_prediction(user_input):
     
     return f"Ответ {user_result}"
 
-@app.route('/predict/', methods=['post', 'get'])
+@app.route('/predict/', methods=['POST', 'GET'])
 def processing():
     message = ''
     if request.method == 'POST':  

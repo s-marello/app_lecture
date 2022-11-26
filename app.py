@@ -12,7 +12,7 @@ def get_prediction(user_input):
 
 @app.route('/', methods = ['POST', 'GET'])
 def index():
-    return render_template('index.html')
+    return render_template('login.html')
 
 @app.route('/predict/', methods=['post', 'get'])
 def processing():

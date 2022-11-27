@@ -9,8 +9,8 @@ def get_prediction(user_input):
     user_result = model.predict(user_input)
     ppr_target = user_result.tolist()[0][0]
     mupr_target = user_result.tolist()[0][1]
-    return print('Результаты работы модели:'
-            f'Прочность при растяжении: {ppr_target:.3f} МПа;'
+    return ('Результаты работы модели:' \ 
+            f'Прочность при растяжении: {ppr_target:.3f} МПа;' \
             f'Модуль упругости при растяжении: {mupr_target:.3f} ГПа.')
 
 @app.route('/', methods=['POST', 'GET'])

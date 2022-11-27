@@ -9,10 +9,8 @@ def get_prediction(user_input):
     user_result = model.predict(user_input)
     ppr_target = user_result.tolist()[0][0]
     mupr_target = user_result.tolist()[0][1]
-    return ('Результаты работы модели: ' 
-            
+    return ('Результаты работы модели: '     
             f'Прочность при растяжении: {ppr_target:.3f} МПа; '
-            
             f'Модуль упругости при растяжении: {mupr_target:.3f} ГПа.')
 
 @app.route('/', methods=['POST', 'GET'])
@@ -36,7 +34,7 @@ def prediction():
         pn = float(request.form.get('pn'))
         user_input_list = [[smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]]
         list_array = np.array(user_input_list)
-        message = get_prediction(list_array)
+        message = print(get_prediction(list_array))
         return render_template('main.html', message=message)
     
 if __name__ == '__main__':

@@ -28,7 +28,7 @@ def prediction():
         un = float(request.form.get('un'))
         shn = float(request.form.get('shn'))
         pn = float(request.form.get('pn'))
-        user_input_list = [[smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]]
+        user_input_list = [smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]
         list_array = np.array(user_input_list)
         message = get_prediction(list_array)
         return render_template('main.html', message=message)

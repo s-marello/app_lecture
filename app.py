@@ -36,7 +36,7 @@ def prediction():
         user_input_list = [[smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]]
         list_array = np.array(user_input_list)
         message = get_prediction(list_array)
-        return render_template('main.html', message=message)
+        return render_template('main.html', message=[message.to_html(classes='data', header="true")])
     
 if __name__ == '__main__':
     app.run()

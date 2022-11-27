@@ -7,7 +7,7 @@ app = Flask(__name__)
 def get_prediction(user_input):
     model = tf.keras.models.load_model('model') 
     user_result = model.predict(user_input)
-    return f"Ответ: {user_result}"
+    return f"Прочность при растяжении, МПа: {user_result[0]}/nМодуль упругости при растяжении, ГПа: {user_result[1]}"
 
 @app.route('/', methods=['POST', 'GET'])
 
@@ -28,7 +28,7 @@ def prediction():
         un = float(request.form.get('un'))
         shn = float(request.form.get('shn'))
         pn = float(request.form.get('pn'))
-        user_input_list = [smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]
+        user_input_list = [[smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]]
         list_array = np.array(user_input_list)
         message = get_prediction(list_array)
         return render_template('main.html', message=message)

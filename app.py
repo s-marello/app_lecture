@@ -7,8 +7,8 @@ app = Flask(__name__)
 def get_prediction(user_input):
     model = tf.keras.models.load_model('model') 
     user_result = model.predict(user_input)
-    ppr_target = user_result[0]
-    mupr_target = user_result[1]
+    ppr_target = user_result.tolist()[0][0]
+    mupr_target = user_result.tolist()[0][1]
     return (f"Прочность при растяжении, МПа: {ppr_target} /nМодуль упругости при растяжении, ГПа: {mupr_target}")
 
 @app.route('/', methods=['POST', 'GET'])

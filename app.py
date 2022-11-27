@@ -17,17 +17,20 @@ def prediction():
     if request.method == 'GET':
         return render_template('main.html')
     if request.method == 'POST':  
-        message = 123#get_prediction(np.array([[request.form.get('smn'), 
-                                            #request.form.get('pl'),
-                                            #request.form.get('mu'),
-                                            #request.form.get('ko'),
-                                            #request.form.get('seg'),
-                                            #request.form.get('tv'),
-                                            #request.form.get('pp'),
-                                            #request.form.get('ps'),
-                                            #request.form.get('un'),
-                                            #request.form.get('shn'),
-                                            #request.form.get('pn')]]))
+        smn = float(request.form.get('smn'))
+        pl = float(request.form.get('pl'))
+        mu = float(request.form.get('mu'))
+        ko = float(request.form.get('ko'))
+        seg = float(request.form.get('seg'))
+        tv = float(request.form.get('tv'))
+        pp = float(request.form.get('pp'))
+        ps = float(request.form.get('ps'))
+        un = float(request.form.get('un'))
+        shn = float(request.form.get('shn'))
+        pn = float(request.form.get('pn'))
+        user_input_list = [[smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]]
+        list_array = np.array(user_input_list)
+        message = get_prediction(list_array)
         return render_template('main.html', message=message)
     
 if __name__ == '__main__':

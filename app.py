@@ -9,10 +9,7 @@ def get_prediction(user_input):
     user_result = model.predict(user_input)
     ppr_target = user_result.tolist()[0][0]
     mupr_target = user_result.tolist()[0][1]
-    data = pd.DataFrame([['Прочность при растяжении', f'{ppr_target:.3f} МПа'], 
-                   ['Модуль упругости при растяжении', f'{mupr_target:.3f} ГПа']],
-                    columns=['Прогнозируемое свойство', 'Результат'])
-    return data
+    return (f'РЕЗУЛЬТАТ РАБОТЫ МОДЕЛИ: Прочность при растяжении, f'{ppr_target:.3f} МПа; Модуль упругости при растяжении, f'{mupr_target:.3f} ГПа.')
 
 @app.route('/', methods=['POST', 'GET'])
 
@@ -36,7 +33,7 @@ def prediction():
         user_input_list = [[smn, pl, mu, ko, seg, tv, pp, ps, un, shn, pn]]
         list_array = np.array(user_input_list)
         message = get_prediction(list_array)
-        return render_template('main.html', message=[message.to_html(classes='data', header="true")])
+        return render_template('main.html', message=message)
     
 if __name__ == '__main__':
     app.run()
